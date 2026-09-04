@@ -2,7 +2,7 @@ name: 🦅 Claw Agent KeepAlive
 
 on:
   schedule:
-    # اختبار: كل 3 دقائق (موقت) — لو الوكيل وقف، يعيد تشغيله
+    # اختبار: كل 3 دقائق — لو الوكيل وقف، يعيد تشغيله
     - cron: "*/3 * * * *"
   workflow_dispatch:   # تشغيل يدوي من GitHub
 
@@ -25,4 +25,7 @@ jobs:
         env:
           KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
           KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+          GROQ_KEY: ${{ secrets.GROQ_KEY }}
+          CLAW_TG_TOKEN: ${{ secrets.CLAW_TG_TOKEN }}
+          CLAW_TG_ALLOW: ${{ secrets.CLAW_TG_ALLOW }}
         run: python keepalive.py
