@@ -1,0 +1,12 @@
+{
+  "id": "zakariaehaman/claw-agent",
+  "title": "Claw Agent - بوت ذكي ثنائي اللغة",
+  "code_file": "claw_kaggle.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "competition_sources": [],
+  "dataset_sources": []
+}

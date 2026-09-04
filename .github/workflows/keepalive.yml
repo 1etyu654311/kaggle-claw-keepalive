@@ -1,0 +1,28 @@
+name: 🦅 Claw Agent KeepAlive
+
+on:
+  schedule:
+    # كل 25 دقيقة — لو الوكيل وقف، يعيد تشغيله
+    - cron: "*/25 * * * *"
+  workflow_dispatch:   # تشغيل يدوي من GitHub
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Kaggle CLI
+        run: pip install -q kaggle
+
+      - name: Check & restart agent
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+        run: python keepalive/keepalive.py
