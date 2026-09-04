@@ -2,8 +2,8 @@ name: 🦅 Claw Agent KeepAlive
 
 on:
   schedule:
-    # كل 25 دقيقة — لو الوكيل وقف، يعيد تشغيله
-    - cron: "*/25 * * * *"
+    # اختبار: كل 3 دقائق (موقت) — لو الوكيل وقف، يعيد تشغيله
+    - cron: "*/3 * * * *"
   workflow_dispatch:   # تشغيل يدوي من GitHub
 
 jobs:
